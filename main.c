@@ -1,5 +1,5 @@
 /******************************************************************************
-* MUI_CustomClass - Simple CustomClass
+* MUI_CustomClass2 - CustomClass made from existing MUI-Classes
 * (C)2022 M.Volkel (mario.volkel@outlook.com)
 *******************************************************************************/
 
@@ -153,7 +153,7 @@ struct ObjApp * CreateApp(void)
 	End;
 
 	ObjectApp->WI_label_0 = WindowObject,
-		MUIA_Window_Title,	"MUI_CClass",
+		MUIA_Window_Title,	"MUI_CClass2",
 		MUIA_Window_ID,		MAKE_ID('0', 'W', 'I', 'N'),
 		WindowContents,		GROUP_ROOT_0,
 	End;
@@ -161,10 +161,10 @@ struct ObjApp * CreateApp(void)
 	ObjectApp->App = ApplicationObject,
 		MUIA_Application_Author,		"M.Volkel",
 		MUIA_Application_Base,			"MUICCLASS",
-		MUIA_Application_Title,			"MUI_CustomClass",
-		MUIA_Application_Version,		"$VER: MUI_CustomClass V0.1",
+		MUIA_Application_Title,			"MUI_CustomClass2",
+		MUIA_Application_Version,		"$VER: MUI_CustomClass2 V0.1",
 		MUIA_Application_Copyright,		"(C)2022 M.Volkel",
-		MUIA_Application_Description,	"MUI-CustomClass",
+		MUIA_Application_Description,	"MUI-CustomClass2",
 		SubWindow,						ObjectApp->WI_label_0,
 	End;
 
@@ -178,6 +178,9 @@ struct ObjApp * CreateApp(void)
 	// Window-Close-Method
 	DoMethod(ObjectApp->WI_label_0, MUIM_Notify, MUIA_Window_CloseRequest, TRUE, ObjectApp->App, 2, MUIM_Application_ReturnID, MUIV_Application_ReturnID_Quit);
 
+	// Exit-Button
+	DoMethod(ObjectApp->BT_label_0, MUIM_Notify, MUIA_Pressed, MUIV_EveryTime, ObjectApp->App, 2, MUIM_Application_ReturnID, MUIV_Application_ReturnID_Quit);
+	
 	// Open Window
 	set(ObjectApp->WI_label_0, MUIA_Window_Open, TRUE);
 
