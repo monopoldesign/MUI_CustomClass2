@@ -258,13 +258,10 @@ struct ObjApp * CreateApp(void)
 {
 	struct ObjApp * ObjectApp;
 
-	APTR GROUP_ROOT_0, rect, mcc1;
+	APTR GROUP_ROOT_0, mcc1;
 
 	if (!(ObjectApp = AllocVec(sizeof(struct ObjApp), MEMF_CLEAR)))
 		return(NULL);
-
-	rect = RectangleObject,
-	End;
 
 	mcc1 = NewObject(mcc->mcc_Class, NULL,
 					MUIA_MUIClassTutorial_TextStr, (ULONG)"Click the button...",
@@ -275,7 +272,6 @@ struct ObjApp * CreateApp(void)
 
 	GROUP_ROOT_0 = GroupObject,
 		MUIA_Group_Columns,		1,
-		Child,					rect,
 		Child,					mcc1,
 		Child,					ObjectApp->BT_label_0,
 	End;
