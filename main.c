@@ -85,9 +85,9 @@ HOOKPROTONH(ButtonFunc, ULONG, Object *obj, APTR *msg)
     bt = (Object *) *msg++;
     str = (Object *) *msg;
                 
-    SetAttrs(str, MUIA_String_Contents, "Button clicked...", TAG_DONE);
-    SetAttrs(bt, MUIA_Text_Contents, "Clicked!", TAG_DONE);
-    SetAttrs(bt, MUIA_Disabled, TRUE, TAG_DONE);
+    set(str, MUIA_String_Contents, "Button clicked...");
+    set(bt, MUIA_Text_Contents, "Clicked!");
+    set(bt, MUIA_Disabled, TRUE);
 
 	return 0;
 }
@@ -124,8 +124,8 @@ ULONG myNew(struct IClass *cl, Object *obj, Msg msg)
     struct TagItem *tags;
 
     tags = ((struct opSet *)msg)->ops_AttrList;
-    labelStr = (STRPTR)GetTagData(MUIA_MUIClassTutorial_TextStr, (ULONG)" ",tags);
-    labelButton = (STRPTR)GetTagData(MUIA_MUIClassTutorial_LabelBut, (ULONG)" ",tags);
+    labelStr = (STRPTR)GetTagData(MUIA_MUIClassTutorial_TextStr, (ULONG)" ", tags);
+    labelButton = (STRPTR)GetTagData(MUIA_MUIClassTutorial_LabelBut, (ULONG)" ", tags);
 
 	str = MUI_NewObject(MUIC_String,
 						MUIA_Frame, MUIV_Frame_String,
