@@ -1,5 +1,3 @@
-# MUI_CustomClass
+# MUI_CustomClass2
 
-A simple CustomClass under MUI
- 
-
+A CustomClass under MUI made from existing MUI-Classes
